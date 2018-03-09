@@ -3,7 +3,7 @@ package TicketLibrary;
 import java.util.HashMap;
 import java.util.List;
 
-public class ConsoleOutputProvider implements IUserIOProvider {
+public class ConsoleOutputProvider implements IUserOutputProvider {
 
     public void printWinners(HashMap<Ticket.possiblePrize, List<Ticket>> winners) {
         String str;

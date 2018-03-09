@@ -1,6 +1,5 @@
 package TicketLibrary;
 
-
 import java.util.List;
 
 public interface ITicketRegistrar {

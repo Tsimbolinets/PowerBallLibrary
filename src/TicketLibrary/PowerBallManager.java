@@ -1,27 +1,22 @@
 package TicketLibrary;
 
+public class PowerBallManager {
 
-public class PowerBallManager extends PowerBallChecker {
-
-
-    private IUserOutputProvider IUserOutputProvider;
 
     private ITicketRegistrar registrar;
 
-    public PowerBallManager() {
-    }
+    private IUserIOProvider ioProvider;
 
-    public PowerBallManager(ITicketRegistrar registrar, IUserOutputProvider IUserOutputProvider) {
+    private IPowerBallStatistic statistic;
+
+    private IPowerBallChecker checker;
+
+    public PowerBallManager(ITicketRegistrar registrar, IUserIOProvider ioProvider,
+                            IPowerBallStatistic statistic, IPowerBallChecker checker) {
         this.registrar = registrar;
-        this.IUserOutputProvider = IUserOutputProvider;
-    }
-
-    public IUserOutputProvider getIUserOutputProvider() {
-        return IUserOutputProvider;
-    }
-
-    public void setIUserOutputProvider(IUserOutputProvider IUserOutputProvider) {
-        this.IUserOutputProvider = IUserOutputProvider;
+        this.ioProvider = ioProvider;
+        this.statistic = statistic;
+        this.checker = checker;
     }
 
     public ITicketRegistrar getRegistrar() {
@@ -32,5 +27,27 @@ public class PowerBallManager extends PowerBallChecker {
         this.registrar = registrar;
     }
 
+    public IPowerBallStatistic getStatistic() {
+        return statistic;
+    }
 
+    public void setStatistic(IPowerBallStatistic statistic) {
+        this.statistic = statistic;
+    }
+
+    public IPowerBallChecker getChecker() {
+        return checker;
+    }
+
+    public void setChecker(IPowerBallChecker checker) {
+        this.checker = checker;
+    }
+
+    public IUserIOProvider getIoProvider() {
+        return ioProvider;
+    }
+
+    public void setIoProvider(IUserIOProvider ioProvider) {
+        this.ioProvider = ioProvider;
+    }
 }

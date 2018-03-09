@@ -1,6 +1,5 @@
 package TicketLibrary;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,7 +29,7 @@ public class RandomTicketRegistration extends UserControlledRegistration impleme
     }
 
     public Ticket registerTicket() {
-        ArrayList<Integer> exclude = new ArrayList<Integer>();
+        ArrayList<Integer> exclude = new ArrayList<>();
         ArrayList<Integer> registerTicket = new ArrayList<>();
         for (int i = 1; i < 6; i++) {
             int random = getRandomWithExclusion(maxWhiteBall, minRedWhiteBall, exclude);

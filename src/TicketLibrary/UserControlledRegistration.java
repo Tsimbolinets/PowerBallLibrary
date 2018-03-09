@@ -1,6 +1,5 @@
 package TicketLibrary;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

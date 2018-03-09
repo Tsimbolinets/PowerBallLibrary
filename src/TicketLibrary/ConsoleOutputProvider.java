@@ -1,10 +1,9 @@
 package TicketLibrary;
 
-
 import java.util.HashMap;
 import java.util.List;
 
-public class IUserOutputProvider {
+public class ConsoleOutputProvider implements IUserIOProvider {
 
     public void printWinners(HashMap<Ticket.possiblePrize, List<Ticket>> winners) {
         String str;
@@ -28,6 +27,4 @@ public class IUserOutputProvider {
         str += "Red ball number  = " + ticket.getGameFilledBalls().get(5);
         System.out.println(str);
     }
-
 }
-

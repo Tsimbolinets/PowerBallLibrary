@@ -1,18 +1,18 @@
 package TicketLibrary;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class PowerBallChecker extends PowerBallStatistic {
+
+public class PowerBallChecker implements IPowerBallChecker {
 
     public HashMap<Ticket.possiblePrize, List<Ticket>> CheckForWinners(List<Ticket> tickets, Ticket ticketWinNumber) {
         int whiteBallsCount;
         int redBall;
         HashMap<Ticket.possiblePrize, List<Ticket>> winners = new HashMap<>();
         for (Ticket.possiblePrize prize : Ticket.possiblePrize.values()) {
-            winners.put(prize, new ArrayList<Ticket>());
+            winners.put(prize, new ArrayList<>());
         }
         for (Ticket ticket : tickets) {
             whiteBallsCount = 0;
@@ -56,4 +56,3 @@ public class PowerBallChecker extends PowerBallStatistic {
     }
 
 }
-

@@ -8,8 +8,6 @@ public class Ticket {
 
     public enum possiblePrize {Four, Seven, Hundred, FiftyThouth, Million, Jackpot}
 
-    ;
-
     public Ticket(List<Integer> gameFilledBalls) {
         this.gameFilledBalls = gameFilledBalls;
     }

@@ -1,14 +1,11 @@
 package TicketLibrary;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-abstract class PowerBallStatistic {
+public class PowerBallStatistic implements IPowerBallStatistic {
 
-    private ArrayList<Integer> posiblePrizes = new ArrayList<>(Arrays.asList(4, 7, 100, 50000, 1000000, 150000000));
-    private HashMap<Ticket.possiblePrize, Double> chanceToWin = new HashMap<>();
     private int i = 0;
 
     public void statisticOfWinning(int ticketsCount, HashMap<Ticket.possiblePrize, List<Ticket>> winners) {
@@ -16,6 +13,7 @@ abstract class PowerBallStatistic {
         List<Integer> peopleWon = new ArrayList<>();
         double sumStatisticPeopleWon = 0;
         int sumPeopleWon = 0;
+
 
         chanceToWin.put(Ticket.possiblePrize.Four, 0.03718771815); // Chance to get red ball
         // is 1/26 * 64/69 * 63/68 * 62/67 *61/66 * 60/65 + 1/26 * 1/69 * 64/68 * 63/67 *62/66 * 61/65;

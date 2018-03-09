@@ -8,17 +8,17 @@ public class PowerBallManager {
 
     private ITicketRegistrar registrar;
 
-    private IUserOutputProvider outputProvider;
+    private IUserIOProvider userIOProvider;
 
     private IPowerBallStatistic statistic;
 
     private IPowerBallChecker checker;
 
 
-    public PowerBallManager(ITicketRegistrar registrar, IUserOutputProvider outputProvider,
+    public PowerBallManager(ITicketRegistrar registrar, IUserIOProvider userIOProvider,
                             IPowerBallStatistic statistic, IPowerBallChecker checker) {
         this.registrar = registrar;
-        this.outputProvider = outputProvider;
+        this.userIOProvider = userIOProvider;
         this.statistic = statistic;
         this.checker = checker;
     }
@@ -37,11 +37,15 @@ public class PowerBallManager {
     }
 
     public void printWinners(HashMap<Ticket.possiblePrize, List<Ticket>> winners) {
-        outputProvider.printWinners(winners);
+        userIOProvider.printWinners(winners);
+    }
+
+    public int inputValue() {
+        return userIOProvider.inputValue();
     }
 
     public void printTicket(Ticket ticket) {
-        outputProvider.printTicket(ticket);
+        userIOProvider.printTicket(ticket);
     }
 
     public  Ticket registerTicketYourself() {
@@ -72,12 +76,12 @@ public class PowerBallManager {
         this.checker = checker;
     }
 
-    public IUserOutputProvider getOutputProvider() {
-        return outputProvider;
+    public IUserIOProvider getUserIOProvider() {
+        return userIOProvider;
     }
 
-    public void setOutputProvider(IUserOutputProvider outputProvider) {
-        this.outputProvider = outputProvider;
+    public void setUserIOProvider(IUserIOProvider userIOProvider) {
+        this.userIOProvider = userIOProvider;
     }
 
     public ITicketRegistrar getRegistrar() {

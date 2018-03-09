@@ -1,9 +1,11 @@
 package TicketLibrary;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
-public class ConsoleOutputProvider implements IUserOutputProvider {
+public class ConsoleIOProvider implements IUserIOProvider {
 
     public void printWinners(HashMap<Ticket.possiblePrize, List<Ticket>> winners) {
         String str;
@@ -26,5 +28,24 @@ public class ConsoleOutputProvider implements IUserOutputProvider {
         }
         str += "Red ball number  = " + ticket.getGameFilledBalls().get(5);
         System.out.println(str);
+    }
+
+    public int inputValue() {
+        boolean typeMismatchCatch;
+        int ticketsCount = 0;
+        Scanner sc = new Scanner(System.in);
+        do {
+
+            try {
+                typeMismatchCatch = false;
+                ticketsCount = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+                typeMismatchCatch = true;
+                System.out.println("Type mismatch, please enter Integer value");
+            }
+
+        } while (typeMismatchCatch);
+        return ticketsCount;
     }
 }

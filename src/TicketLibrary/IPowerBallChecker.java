@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface IPowerBallChecker {
 
-    HashMap<Ticket.possiblePrize, List<Ticket>> CheckForWinners(List<Ticket> tickets, Ticket ticketWinNumber);
+    HashMap<Ticket.possiblePrize, List<Ticket>> checkForWinners(List<Ticket> tickets, Ticket ticketWinNumber);
 
 }

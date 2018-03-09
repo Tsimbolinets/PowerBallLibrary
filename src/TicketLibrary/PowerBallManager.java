@@ -1,5 +1,8 @@
 package TicketLibrary;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class PowerBallManager {
 
 
@@ -11,6 +14,7 @@ public class PowerBallManager {
 
     private IPowerBallChecker checker;
 
+
     public PowerBallManager(ITicketRegistrar registrar, IUserIOProvider ioProvider,
                             IPowerBallStatistic statistic, IPowerBallChecker checker) {
         this.registrar = registrar;
@@ -19,8 +23,33 @@ public class PowerBallManager {
         this.checker = checker;
     }
 
-    public ITicketRegistrar getRegistrar() {
-        return registrar;
+
+    public List<Ticket> createTickets(int ticketCount) {
+       return registrar.createTickets(ticketCount);
+    }
+
+    public Ticket registerTicket() {
+        return registrar.registerTicket();
+    }
+
+    public HashMap<Ticket.possiblePrize, List<Ticket>> checkForWinners(List<Ticket> tickets, Ticket ticketWinNumber) {
+        return checker.checkForWinners(tickets , ticketWinNumber);
+    }
+
+    public void printWinners(HashMap<Ticket.possiblePrize, List<Ticket>> winners) {
+        ioProvider.printWinners(winners);
+    }
+
+    public void printTicket(Ticket ticket) {
+        ioProvider.printTicket(ticket);
+    }
+
+    public  Ticket registerTicketYourself() {
+        return registrar.registerTicketYourself();
+    }
+
+    public void statisticOfWinning(int ticketsCount, HashMap<Ticket.possiblePrize, List<Ticket>> winners){
+        statistic.statisticOfWinning(ticketsCount,winners);
     }
 
     public void setRegistrar(ITicketRegistrar registrar) {
@@ -49,5 +78,9 @@ public class PowerBallManager {
 
     public void setIoProvider(IUserIOProvider ioProvider) {
         this.ioProvider = ioProvider;
+    }
+
+    public ITicketRegistrar getRegistrar() {
+        return registrar;
     }
 }

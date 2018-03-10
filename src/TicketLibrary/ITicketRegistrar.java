@@ -12,7 +12,6 @@ public interface ITicketRegistrar {
 
     Ticket registerTicket();
 
-    Ticket registerTicketYourself();
 
 
 }

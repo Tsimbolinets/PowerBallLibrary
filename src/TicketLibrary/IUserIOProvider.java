@@ -11,5 +11,7 @@ public interface IUserIOProvider {
     void printTicket(Ticket ticket);
 
     int inputValue();
+
+    Ticket registerTicketYourself() ;
 }
 

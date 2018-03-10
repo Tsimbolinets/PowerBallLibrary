@@ -1,9 +1,6 @@
 package TicketLibrary;
 
-import java.util.HashMap;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ConsoleIOProvider implements IUserIOProvider {
 
@@ -48,4 +45,43 @@ public class ConsoleIOProvider implements IUserIOProvider {
         } while (typeMismatchCatch);
         return ticketsCount;
     }
+
+    public Ticket registerTicketYourself() {
+        ArrayList<Integer> registerTicket = new ArrayList<>();
+        int value;
+        boolean checker = true;
+        int minRedWhiteBall = 1;
+        for (int i = 0; i < 5; i++) {
+            do {
+                int maxWhiteBall = 69;
+                System.out.println("Please, input ball number " + (i + 1) + " from range (" + minRedWhiteBall + "," + maxWhiteBall + ")");
+                value = inputValue();
+                if (value <= maxWhiteBall && value >= minRedWhiteBall && !registerTicket.contains(value)) {
+                    checker = false;
+                    continue;
+                }
+                if (!checker) {
+                    System.out.println("Wrong number or number is already taken");
+                }
+                checker = true;
+            } while (checker);
+            registerTicket.add(value);
+        }
+        do {
+            int maxRedBall = 26;
+            System.out.println("Please, input ball number " + 6 + " from range (" + minRedWhiteBall + "," + maxRedBall + ")");
+            value = inputValue();
+            if (value <= maxRedBall && value >= minRedWhiteBall) {
+                checker = false;
+                continue;
+            }
+            if (!checker) {
+                System.out.println("Wrong number or number is already taken");
+            }
+            checker = true;
+        } while (checker);
+        registerTicket.add(value);
+        return new Ticket(registerTicket);
+    }
+
 }

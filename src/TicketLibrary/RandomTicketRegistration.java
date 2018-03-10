@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomTicketRegistration extends UserControlledRegistration implements ITicketRegistrar {
-
-    private Ticket ticket = new Ticket();
+public class RandomTicketRegistration implements ITicketRegistrar {
 
     private int getRandomWithExclusion(int start, int end, ArrayList<Integer> exclude) {
         Random rand = new Random();
@@ -22,14 +20,14 @@ public class RandomTicketRegistration extends UserControlledRegistration impleme
     public List<Ticket> createTickets(int count) {
         List<Ticket> tickets = new ArrayList<>();
         for (int i = 1; i < count; i++) {
-            ticket = registerTicket();
+            Ticket ticket = registerTicket();
             tickets.add(ticket);
         }
         return tickets;
     }
 
     public Ticket registerTicket() {
-        ArrayList<Integer> exclude = new ArrayList<Integer>();
+        ArrayList<Integer> exclude = new ArrayList<>();
         ArrayList<Integer> registerTicket = new ArrayList<>();
         for (int i = 1; i < 6; i++) {
             int random = getRandomWithExclusion(maxWhiteBall, minRedWhiteBall, exclude);

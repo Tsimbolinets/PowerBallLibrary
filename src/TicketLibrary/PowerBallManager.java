@@ -49,7 +49,7 @@ public class PowerBallManager {
     }
 
     public  Ticket registerTicketYourself() {
-        return registrar.registerTicketYourself();
+        return userIOProvider.registerTicketYourself();
     }
 
     public void statisticOfWinning(int ticketsCount, HashMap<Ticket.possiblePrize, List<Ticket>> winners){

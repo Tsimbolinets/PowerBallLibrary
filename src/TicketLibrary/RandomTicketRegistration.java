@@ -16,7 +16,6 @@ public class RandomTicketRegistration implements ITicketRegistrar {
         return random;
     }
 
-
     public List<Ticket> createTickets(int count) {
         List<Ticket> tickets = new ArrayList<>();
         for (int i = 1; i < count; i++) {
